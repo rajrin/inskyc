@@ -47,6 +47,39 @@ func main() {
 	test_marsh_unmarsh()
 }
 
+//==============================================================================================================================
+//	Init Function - Called when the user deploys the chaincode
+//==============================================================================================================================
+func (t *SimpleChaincode) Init(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
+
+	fmt.Println("init invoked")
+
+	return nil, nil
+}
+
+//==============================================================================================================================
+//	 Router Functions
+//==============================================================================================================================
+//	Invoke - Called on chaincode invoke. Takes a function name passed and calls that function. Converts some
+//		  initial arguments passed to other things for use in the called function e.g. name -> ecert
+//==============================================================================================================================
+func (t *SimpleChaincode) Invoke(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
+	if function == "create_identity" {
+		// arg[0] is the identity json
+		var identity Identity
+		err := json.Unmarshal([]byte(args[0]), &identity)
+		if err != nil {
+			return nil, errors.New("Error: Unmarshal identity data")
+		}
+		return t.create_identity(stub, identity)
+
+	} else if function == "access_identity" {
+		return t.access_identity(stub, args[0])
+	} else {
+		return nil, errors.New("Error: Unknown function call")
+	}
+}
+
 //=========================================================================
 // Access the identity
 // Who can access?
