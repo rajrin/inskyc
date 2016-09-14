@@ -72,8 +72,13 @@ func (t *SimpleChaincode) Invoke(stub *shim.ChaincodeStub, function string, args
 			return nil, errors.New("Error: Unmarshal identity data")
 		}
 		return t.create_identity(stub, identity)
+	} else {
+		return nil, errors.New("Error: Unknown function call")
+	}
+}
 
-	} else if function == "access_identity" {
+func (t *SimpleChaincode) Query(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
+	if function == "access_identity" {
 		return t.access_identity(stub, args[0])
 	} else {
 		return nil, errors.New("Error: Unknown function call")
