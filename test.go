@@ -50,7 +50,8 @@ type SimpleChaincode struct {
 //==============================================================================================================================
 func (t *SimpleChaincode) Init(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
 
-	fmt.Println("init invoked")
+	fmt.Println("init invoked ---> ")
+	fmt.Println(args[0])
 
 	return nil, nil
 }
@@ -62,6 +63,10 @@ func (t *SimpleChaincode) Init(stub *shim.ChaincodeStub, function string, args [
 //		  initial arguments passed to other things for use in the called function e.g. name -> ecert
 //==============================================================================================================================
 func (t *SimpleChaincode) Invoke(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
+
+	fmt.Printf("Invoked Function: %s     ", function)
+	fmt.Printf("Args[0] = %s", args[0])
+
 	if function == "create_identity" {
 		// arg[0] is the identity json
 		var identity Identity
