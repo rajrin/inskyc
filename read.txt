@@ -1,4 +1,9 @@
 
+
+Deploying the chaincode requires the code to be placed in github
+User needs to register by calling the registrar API
+Deploy specs created and POST chaincode with following
+
 user_type1_0c477f11a1    f4ffa6b530
 
 {
@@ -18,4 +23,25 @@ user_type1_0c477f11a1    f4ffa6b530
         "secureContext": "user_type1_0c477f11a1"
     },
     "id": 1
+}
+
+Invoke the create_identity method
+Chaincode Hash=e9aacfeb9f13a969bbaaca506d651badaa5f010b341bd028f4abdba8299f31e03c4debca25cf092d1c24da28773daf39911f2fd354b604aad3b0adc4e914dcf0
+{
+    "jsonrpc": "2.0",
+    "method": "invoke",
+    "params": {
+        "type": 1,
+        "chaincodeID": {
+            "name": "e9aacfeb9f13a969bbaaca506d651badaa5f010b341bd028f4abdba8299f31e03c4debca25cf092d1c24da28773daf39911f2fd354b604aad3b0adc4e914dcf0"
+        },
+        "ctorMsg": {
+            "function": "create_identity",
+            "args": [
+                "{\"fname\": \"rajeev\", \"mname\":\"*\", \"lname\":\"sakhuja\", \"ssn\":\"123456789\" }"
+            ]
+        },
+        "secureContext": "user_type1_0c477f11a1"
+    },
+    "id": 3
 }

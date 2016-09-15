@@ -27,6 +27,8 @@ type Demographic struct {
 	SSN   string `json:"ssn"`
 }
 
+var x = "{\"fname\": \"rajeev\", \"mname\":\"*\", \"lname\":\"sakhuja\", \"ssn\":\"123456789\" }"
+
 type Identity struct {
 	OwnerHash   string      `json:"hash"`
 	Owner       string      `json:"owner"`
@@ -41,11 +43,6 @@ type Identity struct {
 //				and other HyperLedger functions)
 //==============================================================================================================================
 type SimpleChaincode struct {
-}
-
-func main() {
-	fmt.Println("tetete")
-	test_marsh_unmarsh()
 }
 
 //==============================================================================================================================
@@ -204,4 +201,15 @@ func test_marsh_unmarsh() {
 	err = json.Unmarshal(v, &test)
 
 	fmt.Println(test)
+}
+
+func main() {
+
+	err := shim.Start(new(SimpleChaincode))
+
+	if err != nil {
+		fmt.Printf("Error starting Chaincode: %s", err)
+	}
+
+	fmt.Println("Started-done")
 }
