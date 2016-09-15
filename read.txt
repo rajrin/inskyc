@@ -1,0 +1,21 @@
+
+user_type1_0c477f11a1    f4ffa6b530
+
+{
+    "jsonrpc": "2.0",
+    "method": "deploy",
+    "params": {
+        "type": 1,
+        "chaincodeID": {
+            "path": "https://github.com/rajrin/inskyc"
+        },
+        "ctorMsg": {
+            "function": "init",
+            "args": [
+                "hi there"
+            ]
+        },
+        "secureContext": "user_type1_0c477f11a1"
+    },
+    "id": 1
+}

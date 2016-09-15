@@ -164,8 +164,8 @@ func (t *SimpleChaincode) create_identity(stub *shim.ChaincodeStub, identity Ide
 //	 get_caller_data - Calls the get_ecert and check_role functions and returns the ecert and role for the
 //					 name passed.
 //==============================================================================================================================
-// func (t *SimpleChaincode) get_caller_data(stub *shim.ChaincodeStub) (string, int, error) {
-func (t *SimpleChaincode) get_caller_data(stub shim.ChaincodeStubInterface) (string, int, error) {
+func (t *SimpleChaincode) get_caller_data(stub *shim.ChaincodeStub) (string, int, error) {
+	//func (t *SimpleChaincode) get_caller_data(stub shim.ChaincodeStubInterface) (string, int, error) {
 
 	bytes, err := stub.GetCallerCertificate()
 	if err != nil {
