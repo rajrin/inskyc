@@ -17,7 +17,7 @@ user_type1_0c477f11a1    f4ffa6b530
         "ctorMsg": {
             "function": "init",
             "args": [
-                "hi dhakkan"
+                "hi eighht"
             ]
         },
         "secureContext": "user_type1_0c477f11a1"
@@ -33,7 +33,7 @@ Chaincode Hash=
     "params": {
         "type": 1,
         "chaincodeID": {
-            "name": "e5d92a90fcd2964081bd33dcaac0c344964e8a15b0b57277c18a82570297b1dd433303a6258fafa9cac93fbf7392bcfc840f25bc2bbfc096199b927e7dc63c97"
+            "name": "6ee7c320ef27f20079f4caf1e327505cbe97dfc74feecf9e7b0606b32ff7fe40a8cc70a09a98189a358f3a05a2a1ff680e50178597ab2269753a377e6ab7562d"
         },
         "ctorMsg": {
             "function": "create_identity",

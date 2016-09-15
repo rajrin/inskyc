@@ -64,8 +64,9 @@ func (t *SimpleChaincode) Init(stub *shim.ChaincodeStub, function string, args [
 //==============================================================================================================================
 func (t *SimpleChaincode) Invoke(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
 
-	fmt.Printf("Invoked Function: %s     ", function)
-	fmt.Printf("Args[0] = %s", args[0])
+	fmt.Println("Invoked Function: ")
+	fmt.Println(function)
+	fmt.Println(args[0])
 
 	if function == "create_identity" {
 		// arg[0] is the identity json
@@ -82,7 +83,12 @@ func (t *SimpleChaincode) Invoke(stub *shim.ChaincodeStub, function string, args
 
 func (t *SimpleChaincode) Query(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
 	if function == "access_identity" {
-		return t.access_identity(stub, args[0])
+		v, err := t.access_identity(stub, args[0])
+		fmt.Println("RCVD:")
+		fmt.Println(v)
+		fmt.Println(err)
+
+		return v, err
 	} else {
 		return nil, errors.New("Error: Unknown function call")
 	}
