@@ -27,7 +27,7 @@ type Demographic struct {
 	SSN   string `json:"ssn"`
 }
 
-var x = "{\"fname\": \"rajeev\", \"mname\":\"*\", \"lname\":\"sakhuja\", \"ssn\":\"123456789\" }"
+//var x = "{\"fname\": \"rajeev\", \"mname\":\"*\", \"lname\":\"sakhuja\", \"ssn\":\"123456789\" }"
 
 type Identity struct {
 	OwnerHash   string      `json:"hash"`
