@@ -23,6 +23,7 @@ const VALIDATOR = 2 // Entity that can certify or validate the Identity
 type Demographic struct {
 	FName string `json:"fname"`
 	MName string `json:"mname"`
+	LName string `json:"lname"`
 	SSN   string `json:"ssn"`
 }
 
